@@ -26,9 +26,9 @@ export default function AddColorForm({ onNewColor = (f) => f }) {
                 required
             />
             <input
-                type='text'
+                type='color'
                 ref={hexColor}
-                placeholder='Color hex...'
+                // placeholder='Color hex...'
                 required
             />
             <button>ADD</button>

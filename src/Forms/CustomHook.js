@@ -3,11 +3,11 @@ import { useInput } from './Hook';
 
 export default function AddColorFormCH({ onNewColor = (f) => f }) {
     const [titleProps, resetTitle] = useInput('');
-    const [colorProps, resetColor] = useInput('#000000');
+    const [colorProps, resetColor] = useInput('#ffffff');
 
     const submit = (event) => {
         event.preventDefault();
-        onNewColor(titleProps, colorProps);
+        onNewColor(titleProps.value, colorProps.value);
         resetTitle();
         resetColor();
     };
@@ -22,8 +22,8 @@ export default function AddColorFormCH({ onNewColor = (f) => f }) {
             />
             <input
                 {...colorProps}
-                type='text'
-                placeholder='Color hex...'
+                type='color'
+                // placeholder='Color hex...'
                 required
             />
             <button>ADD</button>

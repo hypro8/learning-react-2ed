@@ -9,8 +9,8 @@ import AppStateAll from './AppStateAll';
 ReactDOM.render(
     <React.StrictMode>
         {/* <App /> */}
-        <AppState />
-        {/* <AppStateAll /> */}
+        {/* <AppState /> */}
+        <AppStateAll />
     </React.StrictMode>,
     document.getElementById('root')
 );

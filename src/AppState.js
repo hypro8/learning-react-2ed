@@ -1,27 +1,41 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-import colorData from './ColorList/ColorData.json';
-import ColorList from './ColorList/ColorList';
+import colorData from "./Data/ColorData.json";
+import ColorList from "./ColorList/ColorList";
 
-function AppState() {
+// use Form to add new color
+import AddColorFormCH from "./Forms/CustomHook";
+import { v4 } from "uuid";
+
+export default function AppState() {
     const [colors, setColors] = useState(colorData);
     return (
-        <ColorList
-            colors={colors}
-            onRemoveColor={(id) => {
-                const newColors = colors.filter((color) => color.id !== id);
-                setColors(newColors);
-            }}
-            onRateColor={(id, rating) => {
-                const newColors = colors.map(
-                    (color) => (color.id === id ? { ...color, rating } : color)
-                    // VS: color.id === id ? (color.rating = rating) : color
-                );
-                setColors(newColors);
-            }}
-        />
+        <>
+            <ColorList
+                colors={colors}
+                onRemoveColor={(id) => {
+                    const newColors = colors.filter((color) => color.id !== id);
+                    setColors(newColors);
+                }}
+                onRateColor={(id, rating) => {
+                    const newColors = colors.map(
+                        (color) =>
+                            color.id === id ? { ...color, rating } : color
+                        // VS: color.id === id ? (color.rating = rating) : color
+                    );
+                    setColors(newColors);
+                }}
+            />
+            <AddColorFormCH
+                onNewColor={(title, color) => {
+                    const newColors = [
+                        ...colors,
+                        { id: v4(), rating: 0, title, color },
+                    ];
+                    setColors(newColors);
+                }}
+            />
+        </>
     );
 }
-
-export default AppState;

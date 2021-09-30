@@ -4,22 +4,24 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 // switch among Apps JS
-// import AppState from "./AppState";
+import AppState from "./AppState";
 // import AppStateAll from "./AppStateAll";
 // import App from "./App";
 
-// for using of Context.Provider:
-import ColorProvider from "./Context/ColorProvider";
-import AppContext from "./AppContext";
+// for using of Context:
+import colorData from "./Data/ColorData.json";
+
+import { createContext } from "react";
+
+export const ColorContext = createContext();
 
 ReactDOM.render(
     <React.StrictMode>
-        <ColorProvider>
+        <ColorContext.Provider value={{ colorData }}>
             {/* <App /> */}
+            <AppState />
             {/* <AppStateAll /> */}
-            {/* <AppState /> */}
-            <AppContext />
-        </ColorProvider>
+        </ColorContext.Provider>
     </React.StrictMode>,
     document.getElementById("root")
 );

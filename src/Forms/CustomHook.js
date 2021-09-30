@@ -1,9 +1,9 @@
-import React from 'react';
-import { useInput } from './Hook';
+import React from "react";
+import { useInput } from "./Hook";
 
 export default function AddColorFormCH({ onNewColor = (f) => f }) {
-    const [titleProps, resetTitle] = useInput('');
-    const [colorProps, resetColor] = useInput('#ffffff');
+    const [titleProps, resetTitle] = useInput("");
+    const [colorProps, resetColor] = useInput("#000000");
 
     const submit = (event) => {
         event.preventDefault();
@@ -16,13 +16,13 @@ export default function AddColorFormCH({ onNewColor = (f) => f }) {
         <form onSubmit={submit}>
             <input
                 {...titleProps}
-                type='text'
-                placeholder='Color Title...'
+                type="text"
+                placeholder="Color Title..."
                 required
             />
             <input
                 {...colorProps}
-                type='color'
+                type="color"
                 // placeholder='Color hex...'
                 required
             />

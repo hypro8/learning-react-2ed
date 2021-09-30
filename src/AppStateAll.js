@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-import colorData from './ColorList/ColorData.json';
-import ColorList from './AllComps';
-import AddColorFormCH from './Forms/CustomHook';
-import { v4 } from 'uuid';
+import colorData from "./Data/ColorData.json";
+import ColorList from "./AllComps";
+import AddColorFormCH from "./Forms/CustomHook";
+import { v4 } from "uuid";
 
-function AppStateAll() {
+export default function AppStateAll() {
     const [colors, setColors] = useState(colorData);
 
     return (
@@ -38,5 +38,3 @@ function AppStateAll() {
         </>
     );
 }
-
-export default AppStateAll;

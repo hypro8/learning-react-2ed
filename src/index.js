@@ -6,19 +6,21 @@ import "./index.css";
 // switch among Apps JS
 // import AppState from "./AppState";
 // import AppStateAll from "./AppStateAll";
-// import App from "./App";
+import App from "./App";
 
 // for using of Context.Provider:
 import ColorProvider from "./Context/ColorProvider";
 import AppContext from "./AppContext";
+import AppUseEffect from "./AppUseEffect";
 
 ReactDOM.render(
     <React.StrictMode>
         <ColorProvider>
-            {/* <App /> */}
+            <App />
             {/* <AppStateAll /> */}
             {/* <AppState /> */}
-            <AppContext />
+            {/* <AppContext /> */}
+            <AppUseEffect />
         </ColorProvider>
     </React.StrictMode>,
     document.getElementById("root")
